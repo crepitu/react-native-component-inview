@@ -27,7 +27,7 @@ const checkVisible = (isVisible:boolean) => {
   }
 
 <ScrollView>
-  <InView treshold={50} onChange={(isVisible) => this.checkVisible(isVisible)}>
+  <InView threshold={50} onChange={(isVisible) => this.checkVisible(isVisible)}>
     <View style={[styles.item, {backgroundColor: isInView ? 'yellow' : '#f9c2ff'}]}>
       <Text>yay</Text>
     </View>
