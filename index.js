@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Dimensions, View } from 'react-native'
 
 export interface Iprops {
-  disabled: boolean
+  disabled: boolean,
+  threshold:0,
 }
 
 const InViewPort = class extends Component<Iprops> {
@@ -57,8 +58,8 @@ const InViewPort = class extends Component<Iprops> {
     const window = Dimensions.get('window')
     const isVisible =
       this.state.rectBottom !== 0 &&
-      this.state.rectTop >= 0 &&
-      this.state.rectBottom <= window.height &&
+      this.state.rectTop+this.props.threshold >= 0 &&
+      this.state.rectBottom-this.props.threshold <= window.height &&
       this.state.rectWidth > 0 &&
       this.state.rectWidth <= window.width
     if (this.lastValue !== isVisible) {
